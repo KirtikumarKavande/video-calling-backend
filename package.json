@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "prebuild": " tsconfig.json --fix",
+    "prebuild": "tsconfig.json --fix",
     "build": "tsc",
     "watch": "tsc -w",
     "prestart": "npm run build",

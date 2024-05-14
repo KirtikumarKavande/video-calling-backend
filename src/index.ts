@@ -14,14 +14,11 @@ const io = new Server(server, {
 });
 
 app.use(cors());
-app.get("/", (_, res) => {
-  res.send("Hello World!");
-});
 
 io.on("connection", (socket) => {
   console.log("new user connected");
 
-  roomHandler(socket);
+ roomHandler(socket)
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });
