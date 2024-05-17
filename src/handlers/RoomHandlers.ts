@@ -9,7 +9,7 @@ const roomHandler = (socket: Socket) => {
     socket.join(roomId);
     rooms[roomId] = [];
 
-    socket.emit("room-created", { roomId });
+    socket.emit("room-created", { roomId  });
     console.log("room created with id", roomId + " joined by user", userId);
   };
 
@@ -17,14 +17,12 @@ const roomHandler = (socket: Socket) => {
     if (rooms[roomId]) {
       rooms[roomId].push(userId);
       socket.join(roomId);
-       socket.on('ready',()=>{
-        socket.to(roomId).emit("user joined with user Id",userId)
-
-       })
+      socket.on("ready", () => {
+        socket.to(roomId).emit("user-joined", {userId});
+      });
       console.log(`new user with id ${userId} joined room ${roomId}`);
     }
     console.log("lets see", rooms);
-
   };
 
   socket.on("create-room", createRoom);
