@@ -10,7 +10,7 @@
     "prestart": "npm run build",
     "start": "nodemon .",
     "dev": "npx concurrently  --kill-others \"npm run watch\" \" npm start\" ",
-    "render-start": "npm run build && node dist/index.js"
+    "render-start": "npm run dev && node dist/index.js"
 
   },
   "keywords": [],
