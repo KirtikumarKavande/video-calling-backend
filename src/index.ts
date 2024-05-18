@@ -8,8 +8,10 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: "https://video-calling-frontend-nu.vercel.app",
     methods: ["GET", "POST"],
+    credentials: true
+
   },
 });
 
